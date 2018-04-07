@@ -25,7 +25,5 @@ def test_storing_file_on_s3(mocker, infile):
     Writes content from onfile-like to S3
     """
     client = mocker.Mock()
-
     storage.s3(client, infile, "bucket", "file-name")
-
-    client.upload_fileobj.assert_called_with(infile, "bucket", "file_name")
+    client.upload_fileobj.assert_called_with(infile, "bucket", "file-name")
